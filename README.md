@@ -57,8 +57,7 @@ Uses Resend API for reliable email delivery:
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
-   cd ai-meeting-summarizer
+   git clone <https://github.com/SwatiSTiwari/mango-desk.git>
    ```
 
 2. **Install dependencies**
@@ -119,22 +118,7 @@ Uses Resend API for reliable email delivery:
    - `RESEND_API_KEY`: Your Resend API key
    - `RESEND_FROM_EMAIL`: Your verified sender email
 
-### Other Platforms
 
-The app can be deployed to any platform that supports Next.js:
-- Netlify
-- Railway
-- DigitalOcean App Platform
-- AWS Amplify
-
-## Usage
-
-1. **Upload Transcript**: Either upload a .txt file or paste text directly
-2. **Add Instruction**: Provide specific guidance for AI summary generation
-3. **Generate Summary**: Click the button to get AI-generated structured summary
-4. **Edit Summary**: Review and modify the generated summary as needed
-5. **Add Recipients**: Enter email addresses for sharing
-6. **Send Email**: Share the edited summary with your team
 
 ## API Endpoints
 
@@ -220,26 +204,6 @@ DEBUG=true
 NODE_ENV=development
 ```
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## License
-
-MIT License - see LICENSE file for details
-
-## Support
-
-For issues and questions:
-- Create a GitHub issue
-- Check the troubleshooting section
-- Review environment variable configuration
-
-## Roadmap
 
 - [ ] Save past summaries to localStorage
 - [ ] Download summaries as .txt/.json
