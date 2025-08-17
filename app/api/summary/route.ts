@@ -113,9 +113,16 @@ Remember: Return ONLY the JSON, no other text.`
       const cleanedResponse = {
         title: parsedResponse.title || "Meeting Summary",
         summary: parsedResponse.summary || "AI-generated summary",
-        action_items: Array.isArray(parsedResponse.action_items) ? parsedResponse.action_items.filter(item => item && item.trim()) : [],
-        risks: Array.isArray(parsedResponse.risks) ? parsedResponse.risks.filter(item => item && item.trim()) : [],
-        follow_ups: Array.isArray(parsedResponse.follow_ups) ? parsedResponse.follow_ups.filter(item => item && item.trim()) : []
+        // Keep only non-empty string items; use proper typing to avoid implicit 'any'
+        action_items: Array.isArray(parsedResponse.action_items)
+          ? parsedResponse.action_items.filter((item: unknown): item is string => typeof item === 'string' && item.trim().length > 0)
+          : [],
+        risks: Array.isArray(parsedResponse.risks)
+          ? parsedResponse.risks.filter((item: unknown): item is string => typeof item === 'string' && item.trim().length > 0)
+          : [],
+        follow_ups: Array.isArray(parsedResponse.follow_ups)
+          ? parsedResponse.follow_ups.filter((item: unknown): item is string => typeof item === 'string' && item.trim().length > 0)
+          : []
       }
       
       // If arrays are empty, provide fallback content
@@ -134,7 +141,13 @@ Remember: Return ONLY the JSON, no other text.`
     } catch (parseError) {
       // If JSON parsing fails, try to extract structured content from the text
       const lines = response.split('\n')
-      const extractedData = {
+      const extractedData: {
+        title: string,
+        summary: string,
+        action_items: string[],
+        risks: string[],
+        follow_ups: string[]
+      } = {
         title: "Meeting Summary",
         summary: "",
         action_items: [],
