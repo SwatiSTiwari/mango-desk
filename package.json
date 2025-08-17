@@ -1,0 +1,29 @@
+{
+  "name": "ai-meeting-summarizer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "groq-sdk": "^0.3.0",
+    "resend": "^2.0.0",
+    "multer": "^1.4.5-lts.1",
+    "formidable": "^3.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/multer": "^1.4.11",
+    "typescript": "^5",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4"
+  }
+}
